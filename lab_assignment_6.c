@@ -2,7 +2,21 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
-	return -1;
+	if(low > high){ //checks if the range of numbers to search is empty or not, base case
+		return -1;
+	}
+
+	int middle = low + (high - low)/2; //creates middle of list
+
+	if(low == high){ //if there is onle value in the array, return middle
+		return middle;
+	}
+	else if(numbers[middle] < value){ //checks right
+		return search(numbers, middle + 1, high, value);
+	}
+	else{ //checks left
+		return(numbers, low, middle - 1, value);
+	}
 }
 
 void printArray(int numbers[], int sz)
